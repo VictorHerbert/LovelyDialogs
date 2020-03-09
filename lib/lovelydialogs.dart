@@ -1,13 +1,7 @@
-import 'dart:async';
+library lovelydialogs;
 
-import 'package:flutter/services.dart';
-
-class Lovelydialogs {
-  static const MethodChannel _channel =
-      const MethodChannel('lovelydialogs');
-
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
+/// A Calculator.
+class Calculator {
+  /// Returns [value] plus 1.
+  int addOne(int value) => value + 1;
 }
