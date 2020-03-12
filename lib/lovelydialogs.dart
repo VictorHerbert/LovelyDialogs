@@ -7,22 +7,21 @@ abstract class _LovelyDialog extends StatelessWidget {
   final String title;
   final Function onConfirm;
   final Function onCancel;
+  final Icon standartIcon;
 
-  final Color color;
   final Radius borderRadius;
 
   _LovelyDialog({
     this.title = 'Title',
     this.onConfirm,
     this.onCancel,
-    this.color = Colors.blue,
     this.borderRadius = const Radius.circular(5),
+    this.standartIcon = const Icon(Icons.close)
   });
 
   Widget baseDialog(Widget content) {
     return Dialog(
-      shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.all(borderRadius)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(borderRadius)),
       child: IntrinsicHeight(
         child: Column(
           children: <Widget>[
@@ -83,12 +82,20 @@ abstract class _LovelyDialog extends StatelessWidget {
   }
 }
 
-class LovelyDialogInfo extends _LovelyDialog {
+class LovelyInfoDialog extends _LovelyDialog {
   final BuildContext context;
 
-  LovelyDialogInfo(BuildContext this.context,
-      {String title = 'LovelyDialogs', Function onConfirm, Function onCancel})
-      : super(title: title, onConfirm: onConfirm, onCancel: onCancel);
+  Color color;
+
+  LovelyInfoDialog(
+    {BuildContext this.context,
+    String title = 'LovelyDialogs',
+     @required String description,
+    Function onConfirm,
+    Function onCancel,
+    Icon standartIcon = const Icon(Icons.info),
+    this.color = Colors.blue,
+  }): super(title: title, onConfirm: onConfirm, onCancel: onCancel);
 
   show() {
     return showDialog(
@@ -96,6 +103,7 @@ class LovelyDialogInfo extends _LovelyDialog {
       builder: (BuildContext context) => this,
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -110,13 +118,62 @@ class LovelyDialogInfo extends _LovelyDialog {
             //fontWeight: FontWeight.bold
           ),
         ),
+        SizedBox(height: 16,),
         Row(
           children: <Widget>[
-            InkWell(
-              child: Icon(Icons.check_box_outline_blank),
-              onTap: () => print('tap'),
+            Checkbox(
+              value: true,
+              onChanged: (_){},
             ),
-            
+            Text(
+              'Don\'t show again',
+              style: TextStyle(
+                  //color: Colors.grey,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ],
+    ));
+  }
+}
+
+class LovelyChoiceDialog extends _LovelyDialog {
+  final BuildContext context;
+
+  LovelyChoiceDialog({BuildContext this.context,
+      String title = 'LovelyDialogs', Function onConfirm, Function onCancel})
+      : super(title: title, onConfirm: onConfirm, onCancel: onCancel);
+
+  show() {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) => this,
+    );
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return baseDialog(Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'orem ipsum dolor sit amet, pat. Vivamus dui est, fin sisagittis tortor dui. Mo',
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
+            //fontWeight: FontWeight.bold
+          ),
+        ),
+        SizedBox(height: 16,),
+        Row(
+          children: <Widget>[
+            Checkbox(
+              value: true,
+              onChanged: (_){},
+            ),
             Text(
               'Don\'t show again',
               style: TextStyle(

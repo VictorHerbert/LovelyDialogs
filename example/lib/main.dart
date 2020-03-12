@@ -4,8 +4,6 @@ import 'package:lovelydialogs/lovelydialogs.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,28 +26,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   void _incrementCounter() {
-    LovelyDialogInfo(context,).show();
+    LovelyInfoDialog(
+      context: context,
+      description: 'aleleekekekekekekke',
+    ).show();
     print('foi');
     //setState(() {});
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Click the button'
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: <Widget>[
+          InkWell(
+            child: Card(
+              color: Colors.blue,
+              child: Icon(Icons.info),
             ),
-          ],
-        ),
+            onTap: (){
+              LovelyInfoDialog(description: 'aleleekekekekekekke',);
+            },
+          ),
+          InkWell(
+            child: Card(
+              color: Colors.red,
+              child: Icon(Icons.info),
+            ),
+            onTap: (){
+              LovelyChoiceDialog();
+            },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
