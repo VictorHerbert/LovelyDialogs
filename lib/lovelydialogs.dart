@@ -4,24 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class _LovelyDialog extends StatelessWidget {
-  final String title;
-  final Function onConfirm;
-  final Function onCancel;
-  final Icon standartIcon;
+  final BuildContext context;
+	final String title;
+	final Color color;
+	final Icon icon;
 
   final Radius borderRadius;
+	final ButtonTextTheme buttonsTextTheme;
 
   _LovelyDialog({
-    this.title = 'Title',
-    this.onConfirm,
-    this.onCancel,
-    this.borderRadius = const Radius.circular(5),
-    this.standartIcon = const Icon(Icons.close)
-  });
+		@required this.context,
+		this.title = '',
+		this.color = Colors.blue,
+		this.icon = const Icon(Icons.info),
+
+		this.borderRadius = const Radius.circular(5),	
+		this.buttonsTextTheme = ButtonTextTheme.accent,
+	});
 
   Widget baseDialog(Widget content) {
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(borderRadius)),
+			elevation: 0,
+      shape:RoundedRectangleBorder(borderRadius: BorderRadius.all(borderRadius)),
       child: IntrinsicHeight(
         child: Column(
           children: <Widget>[
@@ -30,8 +34,7 @@ abstract class _LovelyDialog extends StatelessWidget {
               width: double.maxFinite,
               decoration: BoxDecoration(
                   color: Colors.blue,
-                  borderRadius: BorderRadius.only(
-                      topLeft: borderRadius, topRight: borderRadius)),
+                  borderRadius: BorderRadius.only(topLeft: borderRadius, topRight: borderRadius)),
               child: Icon(
                 Icons.pets,
                 color: Colors.white,
@@ -56,21 +59,6 @@ abstract class _LovelyDialog extends StatelessWidget {
                     height: 8,
                   ),
                   content,
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          FlatButton(
-                            child: Text('Cancel'),
-                            onPressed: onConfirm,
-                          ),
-                          FlatButton(
-                            child: Text('Ok'),
-                            onPressed: onConfirm,
-                          )
-                        ]),
-                  )
                 ],
               ),
             )
@@ -80,29 +68,36 @@ abstract class _LovelyDialog extends StatelessWidget {
       ),
     );
   }
-}
 
-class LovelyInfoDialog extends _LovelyDialog {
-  final BuildContext context;
-
-  Color color;
-
-  LovelyInfoDialog(
-    {BuildContext this.context,
-    String title = 'LovelyDialogs',
-     @required String description,
-    Function onConfirm,
-    Function onCancel,
-    Icon standartIcon = const Icon(Icons.info),
-    this.color = Colors.blue,
-  }): super(title: title, onConfirm: onConfirm, onCancel: onCancel);
-
-  show() {
+	show() {
     return showDialog(
       context: context,
       builder: (BuildContext context) => this,
     );
   }
+
+}
+
+class LovelyInfoDialog extends _LovelyDialog {
+	final String preferenceID;
+	final Function onConfirm;
+	final String description;
+
+  LovelyInfoDialog({
+    @required BuildContext context,
+		Color color = Colors.blue,
+		Icon icon = const Icon(Icons.info),
+		String title = '',
+
+		@required this.description,
+		this.preferenceID = '',
+    this.onConfirm,    
+  }) : super(
+		context: context,
+		color: color,
+		icon: icon,
+		title: title
+	);
 
 
   @override
@@ -111,27 +106,40 @@ class LovelyInfoDialog extends _LovelyDialog {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'orem ipsum dolor sit amet, pat. Vivamus dui est, fin sisagittis tortor dui. Mo',
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 14,
-            //fontWeight: FontWeight.bold
-          ),
+          description,
+          style: TextStyle(color: Colors.grey,fontSize: 14,),
         ),
-        SizedBox(height: 16,),
-        Row(
+        SizedBox(
+          height: 16,
+        ),
+        (preferenceID == '')? SizedBox(height: 0,) : Row(
           children: <Widget>[
             Checkbox(
               value: true,
-              onChanged: (_){},
+              onChanged: (_) {},
             ),
             Text(
               'Don\'t show again',
-              style: TextStyle(
-                  //color: Colors.grey,
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
+              style: TextStyle(								
+								fontSize: 14,
+								fontWeight: FontWeight.bold
+							),
             ),
+						Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          FlatButton(
+														textTheme: buttonsTextTheme,
+                            onPressed: () => onConfirm(),
+                            child: Text(
+                              "Confirm",
+                              //style: TextStyle(fontSize: 20.0),
+                            ),
+                          )
+                        ]),
+                  )
           ],
         ),
       ],
@@ -139,12 +147,25 @@ class LovelyInfoDialog extends _LovelyDialog {
   }
 }
 
-class LovelyChoiceDialog extends _LovelyDialog {
-  final BuildContext context;
 
-  LovelyChoiceDialog({BuildContext this.context,
-      String title = 'LovelyDialogs', Function onConfirm, Function onCancel})
-      : super(title: title, onConfirm: onConfirm, onCancel: onCancel);
+class LovelyChoiceDialog extends _LovelyDialog {
+	final Function onConfirm;
+	final Function onCancel;
+
+	LovelyChoiceDialog({
+    @required BuildContext context,
+		Color color = Colors.blue,
+		Icon icon = const Icon(Icons.info),
+		String title = '',
+
+    this.onConfirm,
+		this.onCancel,
+  }) : super(
+		context: context,
+		color: color,
+		icon: icon,
+		title: title
+	);
 
   show() {
     return showDialog(
@@ -152,7 +173,6 @@ class LovelyChoiceDialog extends _LovelyDialog {
       builder: (BuildContext context) => this,
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -167,12 +187,14 @@ class LovelyChoiceDialog extends _LovelyDialog {
             //fontWeight: FontWeight.bold
           ),
         ),
-        SizedBox(height: 16,),
+        SizedBox(
+          height: 16,
+        ),
         Row(
           children: <Widget>[
             Checkbox(
               value: true,
-              onChanged: (_){},
+              onChanged: (_) {},
             ),
             Text(
               'Don\'t show again',

@@ -1,18 +1,33 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:example/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:lovelydialogs/lovelydialogs.dart';
 
 void main() => runApp(MyApp());
 
+
 class MyApp extends StatelessWidget {
+  
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'LovelyDialogs Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'LovelyDialogs Demo'),
-    );
+		return BlocProvider(
+			blocs: [
+				Bloc((i) => ThemeBloc()),
+			],
+			child: Consumer<ThemeBloc>(
+				builder: (BuildContext context, ThemeBloc bloc){
+					return MaterialApp(
+						//debugShowCheckedModeBanner: false,
+						title: 'Lovely Dialogs',
+						theme: ThemeData(
+							primarySwatch: Colors.blue,
+							brightness: bloc.isDark ? Brightness.dark : Brightness.light,
+						),
+						home: MyHomePage(title: 'Lovely Dialogs'),
+					);
+				}),
+		);
   }
 }
 
@@ -26,14 +41,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {
-    LovelyInfoDialog(
-      context: context,
-      description: 'aleleekekekekekekke',
-    ).show();
-    print('foi');
-    //setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,27 +54,33 @@ class _MyHomePageState extends State<MyHomePage> {
           InkWell(
             child: Card(
               color: Colors.blue,
-              child: Icon(Icons.info),
+              child: Icon(Icons.info, color: Colors.white,),
             ),
             onTap: (){
-              LovelyInfoDialog(description: 'aleleekekekekekekke',);
+              LovelyInfoDialog(
+								context: context,
+								title: 'Lovely Dialogs',
+								description: 'Lorem ipsum dolor sit amet, pat. Vivamus dui est, fin sisagittis tortor dui.',
+							).show();
             },
           ),
           InkWell(
             child: Card(
               color: Colors.red,
-              child: Icon(Icons.info),
+              child: Icon(Icons.list, color: Colors.white),
             ),
             onTap: (){
-              LovelyChoiceDialog();
+              /*LovelyChoiceDialog(
+								context: context,
+							).show();*/
             },
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: BlocProvider.getBloc<ThemeBloc>().switchColor,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(Icons.swap_calls),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
