@@ -2,10 +2,12 @@ library lovelydialogs;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'dart:math';
 
 part 'package:lovelydialogs/lovely_info_dialog.dart';
 part 'package:lovelydialogs/lovely_choice_dialog.dart';
 part 'package:lovelydialogs/lovely_text_input_dialog.dart';
+
 
 //[LovelyInfo] StatefullWidget 
 
@@ -13,7 +15,8 @@ abstract class LovelyDialog extends StatelessWidget {
   final BuildContext context;
 	final String title;
 	final Color color;
-	final Icon icon;
+	final Gradient gradient;
+	final Widget leading;
 
   final Radius borderRadius;
 	final ButtonTextTheme buttonsTextTheme;
@@ -22,7 +25,8 @@ abstract class LovelyDialog extends StatelessWidget {
 		@required this.context,
 		this.title = '',
 		this.color = Colors.blue,
-		this.icon = const Icon(Icons.info),
+		this.gradient,
+		this.leading = const Icon(Icons.info),
 
 		this.borderRadius = const Radius.circular(5),	
 		this.buttonsTextTheme = ButtonTextTheme.accent,
@@ -39,12 +43,10 @@ abstract class LovelyDialog extends StatelessWidget {
               height: 90,
               width: double.maxFinite,
               decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.only(topLeft: borderRadius, topRight: borderRadius)),
-              child: Icon(
-                Icons.pets,
-                color: Colors.white,
-              ),
+								color: color,
+								gradient: gradient,
+								borderRadius: BorderRadius.only(topLeft: borderRadius, topRight: borderRadius)),
+              child: leading,
             ),
             Padding(
               padding: EdgeInsets.only(left: 24, right: 24),
@@ -57,7 +59,7 @@ abstract class LovelyDialog extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

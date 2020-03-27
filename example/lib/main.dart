@@ -1,6 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:example/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:lovelydialogs/lovely_dialogs.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,22 +56,42 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Icon(Icons.info, color: Colors.white,),
             ),
             onTap: (){
-              /*LovelyInfoDialog(
+              LovelyInfoDialog(
 								context: context,
-								title: 'Lovely Dialogs',
+								title: 'Lovely Info Dialog',
 								description: 'Lorem ipsum dolor sit amet, pat. Vivamus dui est, fin sisagittis tortor dui.',
-							).show();*/
+								onConfirm: (){},
+							).show();
             },
           ),
           InkWell(
+            child: Card(
+              color: Colors.green,
+              child: Icon(Icons.comment, color: Colors.white),
+            ),
+            onTap: (){
+              LovelyTextInputDialog(
+								context: context,
+								title: 'Lovely Info Dialog',
+							).show();
+            },
+          ),
+					InkWell(
             child: Card(
               color: Colors.red,
               child: Icon(Icons.list, color: Colors.white),
             ),
             onTap: (){
-              /*LovelyChoiceDialog(
+							//Checkbox()
+              LovelyChoiceDialog(
 								context: context,
-							).show();*/
+								stringList: <String>[
+									'Pizza','Hamburguer','Pie','Apple','ddf','34','wer','wef',
+								],
+								title: 'Order Some food',
+								onConfirm: (checked){print(checked);},
+								onValueChanged: (value,index) => print(value.toString() + " " + index.toString()),
+							).show();
             },
           ),
         ],

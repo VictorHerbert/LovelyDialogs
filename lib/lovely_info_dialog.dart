@@ -1,26 +1,19 @@
 part of lovelydialogs;
 
 class LovelyInfoDialog extends LovelyDialog {
-	final String preferenceID;
-	final Function onConfirm;
-	final String description;
+  final String preferenceID;
+  final Function onConfirm;
+  final String description;
 
   LovelyInfoDialog({
     @required BuildContext context,
-		Color color = Colors.blue,
-		Icon icon = const Icon(Icons.info),
-		String title = '',
-
-		@required this.description,
-		this.preferenceID = '',
-    this.onConfirm,    
-  }) : super(
-		context: context,
-		color: color,
-		icon: icon,
-		title: title
-	);
-
+    Color color = Colors.blue,
+    Widget leading = const Icon(Icons.info, color: Colors.white),
+    String title = '',
+    @required this.description,
+    this.preferenceID = '',
+    this.onConfirm,
+  }) : super(context: context, color: color, leading: leading, title: title);
 
   @override
   Widget build(BuildContext context) {
@@ -29,41 +22,51 @@ class LovelyInfoDialog extends LovelyDialog {
       children: <Widget>[
         Text(
           description,
-          style: TextStyle(color: Colors.grey,fontSize: 14,),
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
+          ),
         ),
         SizedBox(
           height: 16,
         ),
-        (preferenceID == '')? SizedBox(height: 0,) : Row(
-          children: <Widget>[
-            Checkbox(
-              value: true,
-              onChanged: (_) {},
-            ),
-            Text(
-              'Don\'t show again',
-              style: TextStyle(								
-								fontSize: 14,
-								fontWeight: FontWeight.bold
-							),
-            ),
-						Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          FlatButton(
-														textTheme: buttonsTextTheme,
-                            onPressed: () => onConfirm(),
-                            child: Text(
-                              "Confirm",
-                              //style: TextStyle(fontSize: 20.0),
-                            ),
-                          )
-                        ]),
-                  )
-          ],
-        ),
+        (preferenceID == '')
+					? SizedBox(
+							height: 0,
+						)
+					: Row(
+							children: <Widget>[
+								Checkbox(
+									value: true,
+									onChanged: (_) {},
+								),
+								Text(
+									'Don\'t show again',
+									style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+								),
+							],
+						),
+				(onConfirm == null)
+					? SizedBox(
+							height: 0,
+						)
+					: Align(
+						alignment: Alignment.bottomCenter,
+						child:
+								Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
+							FlatButton(
+								textTheme: buttonsTextTheme,
+								onPressed: (){
+									Navigator.of(context).pop();
+									onConfirm();
+								},
+								child: Text(
+									"Confirm",
+									//style: TextStyle(fontSize: 20.0),
+								),
+							)
+						]),
+					)
       ],
     ));
   }
