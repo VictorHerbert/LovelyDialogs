@@ -5,7 +5,12 @@ A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/Lovel
 
 ## Improvements
 
+* Supports gradients
+* Supports any images, icons, or any type of widget in 
 
+## Demo App
+
+Apk can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
 
 ## Usage
 
