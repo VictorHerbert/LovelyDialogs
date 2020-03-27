@@ -1,4 +1,5 @@
 # Lovely Dialogs
+![](https://img.shields.io/pub/v/shared_preferences?style=flat-square)
 
 A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/LovelyDialog)
 
@@ -6,19 +7,19 @@ A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/Lovel
 
 In your pubspeck.yaml:
 
-'''
+``` yaml
 dependencies:
   flutter:
     sdk: flutter
 
   lovelydialogs: 0.0.1
-'''
+```
 
 and import
 
-''' dart
+``` dart
 import 'package:badges/badges.dart';
-'''
+```
 
 ## LovelyInfoDialog
 ## LovelyChoiceDialog
