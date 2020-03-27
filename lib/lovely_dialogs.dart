@@ -34,7 +34,7 @@ abstract class LovelyDialog extends StatelessWidget {
 
   Widget baseDialog(Widget content) {
     return Dialog(
-			elevation: 0,
+			elevation: 2,
       shape:RoundedRectangleBorder(borderRadius: BorderRadius.all(borderRadius)),
       child: IntrinsicHeight(
         child: Column(

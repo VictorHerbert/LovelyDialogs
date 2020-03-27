@@ -12,13 +12,14 @@ class LovelyChoiceDialog extends LovelyDialog {
     Color color = Colors.red,
     Widget leading = const Icon(Icons.list, color: Colors.white),
     String title = '',
+		Gradient gradient,
 
     //@required this.widgetList,
     this.stringList,
     @required this.onConfirm,
 		this.onValueChanged,
     this.onCancel,
-  }) : super(context: context, color: color, leading: leading, title: title);
+  }) : super(context: context, color: color, leading: leading, title: title, gradient: gradient);
 
   show() {
     return showDialog(
@@ -64,7 +65,7 @@ class _LovelyChoiceState extends State<LovelyChoiceContent> {
               itemBuilder: (_, index){
 								return ListTile(
 									contentPadding: EdgeInsets.only(right: 0),
-									title: Text(widget.stringList[index]),
+									title: Text(widget.stringList[index],),
 									subtitle: null,
 									trailing: Checkbox(
 										activeColor: Colors.red,
@@ -81,7 +82,7 @@ class _LovelyChoiceState extends State<LovelyChoiceContent> {
         ),
 				SizedBox(height: 10,),
         Align(
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.bottomRight,
           child:
             Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
             FlatButton(

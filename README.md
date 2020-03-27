@@ -3,7 +3,13 @@
 
 A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/LovelyDialog)
 
-## Import
+## Improvements
+
+
+
+## Usage
+
+### Import
 
 In your pubspeck.yaml:
 
@@ -21,6 +27,6 @@ and import
 import 'package:badges/badges.dart';
 ```
 
-## LovelyInfoDialog
-## LovelyChoiceDialog
-## LovelyProgressDialog
+### LovelyInfoDialog
+### LovelyChoiceDialog
+### LovelyProgressDialog

@@ -10,10 +10,12 @@ class LovelyInfoDialog extends LovelyDialog {
     Color color = Colors.blue,
     Widget leading = const Icon(Icons.info, color: Colors.white),
     String title = '',
+		Gradient gradient,
+
     @required this.description,
     this.preferenceID = '',
     this.onConfirm,
-  }) : super(context: context, color: color, leading: leading, title: title);
+  }) : super(context: context, color: color, gradient: gradient, leading: leading, title: title);
 
   @override
   Widget build(BuildContext context) {
