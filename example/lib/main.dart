@@ -1,13 +1,11 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:example/theme_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:lovelydialogs/lovelydialogs.dart';
 
 void main() => runApp(MyApp());
 
 
 class MyApp extends StatelessWidget {
-  
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Icon(Icons.info, color: Colors.white,),
             ),
             onTap: (){
-              LovelyInfoDialog(
+              /*LovelyInfoDialog(
 								context: context,
 								title: 'Lovely Dialogs',
 								description: 'Lorem ipsum dolor sit amet, pat. Vivamus dui est, fin sisagittis tortor dui.',
-							).show();
+							).show();*/
             },
           ),
           InkWell(
