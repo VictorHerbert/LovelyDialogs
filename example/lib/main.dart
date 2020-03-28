@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:example/theme_bloc.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
+	LovelyProgressDialog dialog;
+	double value = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
               ),
               child: Icon(
-                Icons.list,
+                Icons.info,
                 color: Colors.white,
                 size: MediaQuery.of(context).size.width / 15,
               ),
@@ -97,7 +102,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             onTap: () {
-							BlocProvider.getBloc<ThemeBloc>().isDialogActive = true;
               LovelyTextInputDialog(
                 context: context,
                 title: 'Comment on @facebook',
@@ -143,15 +147,47 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Card(
               color: Colors.red,
               child: Icon(
-                Icons.comment,
+                Icons.subscriptions,
                 color: Colors.white,
                 size: MediaQuery.of(context).size.width / 15,
               ),
             ),
             onTap: () {
-              LovelyTextInputDialog(
+							LovelyProgressDialog(
                 context: context,
-                title: 'Comment on @facebook',
+              ).show();
+
+							value = 0;				
+							Timer.periodic(Duration(milliseconds: 100), (timer) {
+								if((value >= 1) || !LovelyProgressSingleton.hasDialogActive()) timer.cancel();
+
+								print(value+=.01);
+								LovelyProgressSingleton.setValue(value);
+							});
+            },
+          ),
+					InkWell(
+            child: Card(
+                child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                gradient: LinearGradient(colors: [Colors.yellow, Colors.pink]),
+              ),
+              child: Icon(
+                Icons.list,
+                color: Colors.white,
+                size: MediaQuery.of(context).size.width / 15,
+              ),
+            )),
+            onTap: () {
+							LovelyCustomDialog(
+                context: context,
+								content: Column(
+									children: <Widget>[
+										Image.network('https://picsum.photos/250?image=9',),
+										SizedBox(height: 8,),
+									],
+								),
               ).show();
             },
           ),
@@ -160,8 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: BlocProvider.getBloc<ThemeBloc>().switchColor,
         tooltip: 'Increment',
-        child: Icon(Icons.swap_calls),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        child: Icon(Icons.sync),
+      ),
     );
   }
 }

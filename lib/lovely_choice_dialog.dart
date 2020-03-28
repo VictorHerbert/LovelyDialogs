@@ -4,29 +4,20 @@ class LovelyChoiceDialog extends LovelyDialog {
 	final Function(bool,int) onValueChanged;
   final Function(List<bool>) onConfirm;
   final Function onCancel;
-  //final List<Widget> widgetList;
   final List<String> stringList;
 
   LovelyChoiceDialog({
     @required BuildContext context,
     Color color = Colors.red,
+		Gradient gradient,
     Widget leading = const Icon(Icons.list, color: Colors.white),
     String title = '',
-		Gradient gradient,
 
-    //@required this.widgetList,
     this.stringList,
     @required this.onConfirm,
 		this.onValueChanged,
     this.onCancel,
   }) : super(context: context, color: color, leading: leading, title: title, gradient: gradient);
-
-  show() {
-    return showDialog(
-      context: context,
-      builder: (BuildContext context) => this,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +27,7 @@ class LovelyChoiceDialog extends LovelyDialog {
 
 class LovelyChoiceContent extends StatefulWidget {
 	final List<String> stringList;
-	//final Color activeColor;
+	//TODO final Color activeColor;
 	final Function(List<bool>) onConfirm;
 	final Function(bool,int) onValueChanged;
 	

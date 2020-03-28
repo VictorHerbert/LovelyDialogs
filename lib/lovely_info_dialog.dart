@@ -4,13 +4,16 @@ class LovelyInfoDialog extends LovelyDialog {
   final String preferenceID;
   final Function onConfirm;
   final String description;
+	//TODO custom button
+	//TODO custom button text
 
   LovelyInfoDialog({
     @required BuildContext context,
     Color color = Colors.blue,
+		Gradient gradient,
     Widget leading = const Icon(Icons.info, color: Colors.white),
     String title = '',
-		Gradient gradient,
+		
 
     @required this.description,
     this.preferenceID = '',
@@ -32,22 +35,6 @@ class LovelyInfoDialog extends LovelyDialog {
         SizedBox(
           height: 16,
         ),
-        (preferenceID == '')
-					? SizedBox(
-							height: 0,
-						)
-					: Row(
-							children: <Widget>[
-								Checkbox(
-									value: true,
-									onChanged: (_) {},
-								),
-								Text(
-									'Don\'t show again',
-									style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-								),
-							],
-						),
 				(onConfirm == null)
 					? SizedBox(
 							height: 0,
@@ -64,7 +51,6 @@ class LovelyInfoDialog extends LovelyDialog {
 								},
 								child: Text(
 									"Confirm",
-									//style: TextStyle(fontSize: 20.0),
 								),
 							)
 						]),

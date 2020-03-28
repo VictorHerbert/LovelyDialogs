@@ -3,6 +3,7 @@ part of lovelydialogs;
 class LovelyTextInputDialog extends LovelyDialog {
   final Function onConfirm;
   final Function onCancel;
+	//TODO icon hint
 
   LovelyTextInputDialog({
     @required BuildContext context,
@@ -13,13 +14,6 @@ class LovelyTextInputDialog extends LovelyDialog {
     this.onConfirm,
     this.onCancel,
   }) : super(context: context, color: color, leading: leading, title: title);
-
-  show() {
-    return showDialog(
-      context: context,
-      builder: (BuildContext context) => this,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
