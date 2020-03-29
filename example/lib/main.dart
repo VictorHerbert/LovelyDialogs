@@ -80,16 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
             )),
             onTap: () {
               LovelyInfoDialog(
-                      context: context,
-                      title: 'Pets',
-                      leading: Icon(Icons.pets, color: Colors.white),
-                      gradient:
-                          LinearGradient(colors: [Colors.blue, Colors.green]),
-                      description:
-                          'Pets are cool, aren\'t they? So don\'t forget to give food and love!'
-                      //onConfirm: (){},
-                      )
-                  .show();
+								context: context,
+								title: 'Pets',
+								leading: Icon(Icons.pets, color: Colors.white),
+								gradient:LinearGradient(colors: [Colors.blue, Colors.green]),
+								description:'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
+								)
+						.show();
             },
           ),
           InkWell(
@@ -135,11 +132,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
                 title: 'Order Some food',
                 gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
-                onConfirm: (checked) {
-                  print(checked);
-                },
-                onValueChanged: (value, index) =>
-                    print(value.toString() + " " + index.toString()),
+                onConfirm: (checked) => print(checked),
+                onValueChanged: (value, index) => print(value.toString() + " " + index.toString()),
               ).show();
             },
           ),
@@ -153,9 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             onTap: () {
-							LovelyProgressDialog(
-                context: context,
-              ).show();
+							LovelyProgressDialog(context: context,).show();
 
 							value = 0;				
 							Timer.periodic(Duration(milliseconds: 100), (timer) {
@@ -168,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 					InkWell(
             child: Card(
-                child: Container(
+              child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 gradient: LinearGradient(colors: [Colors.yellow, Colors.pink]),
@@ -182,9 +174,9 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () {
 							LovelyCustomDialog(
                 context: context,
-								content: Column(
+								child: Column(
 									children: <Widget>[
-										Image.network('https://picsum.photos/250?image=9',),
+										FlutterLogo(size: 200),
 										SizedBox(height: 8,),
 									],
 								),
@@ -195,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: BlocProvider.getBloc<ThemeBloc>().switchColor,
-        tooltip: 'Increment',
+        tooltip: 'Change theme',
         child: Icon(Icons.sync),
       ),
     );

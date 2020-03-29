@@ -1,7 +1,7 @@
 part of lovelydialogs;
 
 class LovelyCustomDialog extends LovelyDialog {
-	final Widget content;
+	final Widget child;
 
   LovelyCustomDialog({
     @required BuildContext context,
@@ -10,12 +10,10 @@ class LovelyCustomDialog extends LovelyDialog {
     Widget leading = const Icon(Icons.info, color: Colors.white),
     String title = '',
 		
-		@required this.content,
+		@required this.child,
 
   }) : super(context: context, color: color, gradient: gradient, leading: leading, title: title);
 
   @override
-  Widget build(BuildContext context) {
-    return baseDialog(content);
-  }
+  Widget build(BuildContext context) => baseDialog(child);
 }

@@ -2,25 +2,23 @@ part of lovelydialogs;
 
 class LovelyProgressSingleton{
 	static Function(double) _callback;
-
-	static set callback(func){
-		_callback = func;
-	}
-
-	static bool hasDialogActive(){
-		return (_callback != null);
-	}
-
-
+	static set callback(func){_callback = func;}
+	
 	static void setValue(double value){
 		if(_callback != null)
 			_callback(value);
 	}
+
+	static bool hasDialogActive() => (_callback != null);
+
+}
+
+enum LovelyProgressType{
+	Linear, Circular
 }
 
 class LovelyProgressDialog extends LovelyDialog {
-	
-	//final Function updateCallback = progressCallback;
+	final LovelyProgressType type;
 
   LovelyProgressDialog({
     @required BuildContext context,
@@ -28,23 +26,19 @@ class LovelyProgressDialog extends LovelyDialog {
 		Gradient gradient,
     Widget leading = const Icon(Icons.loop, color: Colors.white),
     String title,
+
+		this.type = LovelyProgressType.Linear,
   }) : super(context: context, color: color, leading: leading, title: title, gradient: gradient);
 
-  show() {
-    return showDialog(
-      context: context,
-      builder: (BuildContext context) => this,
-    );
-  }
-
-	
-  @override
-  Widget build(BuildContext context) {
-    return baseDialog(_LovelyProgressContent());
-  }
+  
+	@override
+	Widget build(BuildContext context) => baseDialog(_LovelyProgressContent(type));
 }
 
 class _LovelyProgressContent extends StatefulWidget {
+	final LovelyProgressType _type;
+	
+	_LovelyProgressContent(this._type);
 
   @override
   _LovelyProgressState createState() => _LovelyProgressState();
@@ -52,7 +46,7 @@ class _LovelyProgressContent extends StatefulWidget {
 
 class _LovelyProgressState extends State<_LovelyProgressContent> {
 
-	double value;
+	double _value;
 
 	@override
 	void initState(){
@@ -60,9 +54,9 @@ class _LovelyProgressState extends State<_LovelyProgressContent> {
   	LovelyProgressSingleton.callback = updateValue;
 	}
 
-	void updateValue(double _value){
+	void updateValue(double v){
 		setState(() {
-		  value = _value;
+			_value = v;
 		});
 	}
 
@@ -71,11 +65,21 @@ class _LovelyProgressState extends State<_LovelyProgressContent> {
     return Container(
 			height: 100,
 			child: Center(
-				child: LinearProgressIndicator(value: value,)
-				//child: CircularProgressIndicator(value: value,),
+				child: getProgressIndicator(),
 			)
 		);
   }
+
+	Widget getProgressIndicator(){
+		switch (widget._type) {
+			case LovelyProgressType.Linear:
+				return LinearProgressIndicator(value: _value,);
+			case LovelyProgressType.Circular:
+				return CircularProgressIndicator(value: _value,);
+			default:
+				return null;
+		}
+	}
 
 	@override
   void dispose() {

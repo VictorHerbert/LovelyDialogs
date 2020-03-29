@@ -3,8 +3,9 @@ part of lovelydialogs;
 class LovelyChoiceDialog extends LovelyDialog {
 	final Function(bool,int) onValueChanged;
   final Function(List<bool>) onConfirm;
-  final Function onCancel;
+  final Function() onCancel;
   final List<String> stringList;
+	final Color activeCheckColor;
 
   LovelyChoiceDialog({
     @required BuildContext context,
@@ -14,6 +15,7 @@ class LovelyChoiceDialog extends LovelyDialog {
     String title = '',
 
     this.stringList,
+		this.activeCheckColor,
     @required this.onConfirm,
 		this.onValueChanged,
     this.onCancel,
@@ -21,17 +23,17 @@ class LovelyChoiceDialog extends LovelyDialog {
 
   @override
   Widget build(BuildContext context) {
-    return baseDialog(LovelyChoiceContent(stringList,onConfirm,onValueChanged));
+    return baseDialog(LovelyChoiceContent(stringList,activeCheckColor,onConfirm,onValueChanged));
   }
 }
 
 class LovelyChoiceContent extends StatefulWidget {
 	final List<String> stringList;
-	//TODO final Color activeColor;
+	final Color activeCheckColor;
 	final Function(List<bool>) onConfirm;
 	final Function(bool,int) onValueChanged;
 	
-	LovelyChoiceContent(this.stringList,this.onConfirm,this.onValueChanged);
+	LovelyChoiceContent(this.stringList,this.activeCheckColor,this.onConfirm,this.onValueChanged);
 
   @override
   _LovelyChoiceState createState() => _LovelyChoiceState();

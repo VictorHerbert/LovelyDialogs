@@ -34,4 +34,34 @@ import 'package:badges/badges.dart';
 
 ### LovelyInfoDialog
 ### LovelyChoiceDialog
+``` dart
+LovelyChoiceDialog(
+  context: context,
+  leading: Icon(Icons.fastfood, color: Colors.white),
+  stringList: <String>[
+    'Pizza',
+    'Noodles',
+    'Pasta',
+    'Hambuguer',
+    'Pie',
+  ],
+  title: 'Order Some food',
+  gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
+  onConfirm: (checked) => print(checked);
+  onValueChanged: (value, index) => print(value.toString() + " " + index.toString()),
+).show();
+```
+## LovelyTextInput
+
+``` dart
+  LovelyTextInputDialog(
+  context: context,
+  title: 'Comment on @facebook',
+).show();
+```
+
 ### LovelyProgressDialog
+
+LovelyProgressDialog(context: context,).show();
+
+LovelyProgressSingleton.setValue(value);
