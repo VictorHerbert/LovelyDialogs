@@ -49,9 +49,19 @@ import 'package:badges/badges.dart';
 
 Not acessible by default, but all other classes inherits from it. It holds the parameters of the base dialog, colors, etc.
 
-| Parameter | Type | description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | context | BuildContext | context |
+| title | String | The string that goes on the top |
+| color | Color | color of the top BoxDecoration |
+| gradient | Gradient | gradient of the top BoxDecoration |
+| leading | Widget | widget on center of the top box |
+| borderRadius | Radius | radius of the curved border, set to Radius(0) to disable |
+| buttonsTextTheme | ButtonTextTheme | the style of the bottom buttons |
+| touchDismissible | bool | can the skippable touching outside the dialog box |
+| backDismissible | bool | can be skippable with back button |
+
+
 
 ### LovelyInfoDialog
 
