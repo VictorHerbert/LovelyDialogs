@@ -49,9 +49,14 @@ import 'package:badges/badges.dart';
 
 ### LovelyChoiceDialog
 
-<p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" max-height="64px;"/>
-</p>
+<div class="row">
+  <div class="column">
+    <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_light.jpeg" alt="Snow" width="200" height="356">
+  </div>
+  <div class="column">
+    <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" alt="Forest" width="200" height="356">
+  </div>
+</div>
 
 ``` dart
 LovelyChoiceDialog(
