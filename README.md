@@ -61,10 +61,13 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 | touchDismissible | bool | can the skippable touching outside the dialog box |
 | backDismissible | bool | can be skippable with back button |
 
-
-
 ### LovelyInfoDialog
 
+| Parameter | Type | Description |
+| --- | --- | --- |
+| onConfirm | Function() |  |
+| description | String |  |
+| confirmString | String |  |
 
 ### LovelyChoiceDialog
 
@@ -94,6 +97,15 @@ LovelyChoiceDialog(
   onValueChanged: (value, index) => print(value.toString() + " " + index.toString()),
 ).show();
 ```
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| onValueChanged | Function(bool,int) |  |
+| onConfirm | Function(List<bool>) |  |
+| onCancel | Function() |  |
+| stringList | List<String> |  |
+| activeCheckColor | Color |  |
+
 ## LovelyTextInput
 
 ``` dart
@@ -102,6 +114,14 @@ LovelyChoiceDialog(
   title: 'Comment on @facebook',
 ).show();
 ```
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| onConfirm | Function(String) |  |
+| onChange | Function(String) |  |
+| hintIcon | Icon |  |
+| hintText | String |  |
+| confirmString |  String|  |
 
 ### LovelyProgressDialog
 
@@ -114,6 +134,10 @@ and to change its value at runtime
 ``` dart
 LovelyProgressSingleton.setValue(value);
 ```
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| type | LovelyProgressType | 	Linear or Circular |
 
 ### LovelyCustomDialog
 
@@ -131,6 +155,10 @@ LovelyCustomDialog(
   ),
 ).show(),
 ```
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| child | Widget |  |
 
 ## TO DO
 
