@@ -11,11 +11,12 @@ class LovelyInfoDialog extends LovelyDialog {
 		Gradient gradient,
     Widget leading = const Icon(Icons.info, color: Colors.white),
     String title,
+		ButtonTextTheme buttonsTextTheme,
 
     @required this.description,
-		this.confirmString,
+		this.confirmString = 'Confirm',
     this.onConfirm,
-  }) : super(context: context, color: color, gradient: gradient, leading: leading, title: title);
+  }) : super(context: context, color: color, gradient: gradient, leading: leading, title: title, buttonsTextTheme: buttonsTextTheme);
 
   @override
   Widget build(BuildContext context) {

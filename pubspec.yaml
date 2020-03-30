@@ -1,8 +1,7 @@
 name: lovelydialogs
-description: Create fancy dialogs with ease
+description: A wrapper for good looking dialogs
 version: 0.0.1
 author: Victor Herbert
-homepage: victorherberts.firebaseapp.com
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

@@ -4,34 +4,36 @@ class LovelyTextInputDialog extends LovelyDialog {
   final Function(String) onConfirm;
   final Function(String) onChange;
 	final Icon hintIcon;
+	final String hintText;
 	final String confirmString;
-	final ButtonTextTheme buttonTextTheme;
 
   LovelyTextInputDialog({
     @required BuildContext context,
     Color color = Colors.green,
     Widget leading = const Icon(Icons.comment, color: Colors.white),
     String title,
+		ButtonTextTheme buttonsTextTheme,
 		
 		this.hintIcon,
+		this.hintText,
 		this.confirmString = 'Confirm',
-		this.buttonTextTheme = ButtonTextTheme.accent,
     this.onConfirm,
     this.onChange,
-  }) : super(context: context, color: color, leading: leading, title: title);
+  }) : super(context: context, color: color, leading: leading, title: title, buttonsTextTheme: buttonsTextTheme);
 
   @override
-  Widget build(BuildContext context)=> baseDialog(LovelyTextInputContent(onConfirm,onChange,hintIcon,confirmString,buttonTextTheme));
+  Widget build(BuildContext context)=> baseDialog(LovelyTextInputContent(onConfirm,onChange,hintIcon,hintText,confirmString,buttonsTextTheme));
 }
 
 class LovelyTextInputContent extends StatefulWidget {
 	final Function(String) _onConfirm;
   final Function(String) _onChanged;
 	final Icon _hintIcon;
+	final String _hintText;
 	final String _confirmString;
 	final ButtonTextTheme _buttonTextTheme;
 
-	LovelyTextInputContent(this._onConfirm,this._onChanged,this._hintIcon,this._confirmString,this._buttonTextTheme);
+	LovelyTextInputContent(this._onConfirm,this._onChanged,this._hintIcon, this._hintText, this._confirmString,this._buttonTextTheme);
 
   @override
   _LovelyTextInputState createState() => _LovelyTextInputState();
@@ -50,7 +52,7 @@ class _LovelyTextInputState extends State<LovelyTextInputContent> {
           decoration: InputDecoration(
             border: InputBorder.none,
             icon: widget._hintIcon,
-            hintText: 'Comentários',
+            hintText: widget._hintText,
           ),
           onChanged: (value){
 						widget._onChanged(value);

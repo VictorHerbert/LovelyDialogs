@@ -24,7 +24,7 @@ class LovelyProgressDialog extends LovelyDialog {
     @required BuildContext context,
     Color color = Colors.red,
 		Gradient gradient,
-    Widget leading = const Icon(Icons.loop, color: Colors.white),
+    Widget leading = const Icon(Icons.fast_forward, color: Colors.white),
     String title,
 
 		this.type = LovelyProgressType.Linear,

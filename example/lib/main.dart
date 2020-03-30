@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       child:
           Consumer<ThemeBloc>(builder: (BuildContext context, ThemeBloc bloc) {
         return MaterialApp(
-          //debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           title: 'Lovely Dialogs',
           theme: ThemeData(
             primarySwatch: Colors.blue,
@@ -45,8 +45,28 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-	LovelyProgressDialog dialog;
-	double value = 0;
+  LovelyProgressDialog dialog;
+  double value = 0;
+
+  Widget getCard({IconData iconData, Color color, Function onTap}) {
+    return InkWell(
+      child: Card(
+          child: Container(
+						decoration: BoxDecoration(
+							color: color,
+							//border: Border.all()
+							borderRadius: BorderRadius.all(Radius.circular(4))
+						),
+        //borderRadius: BorderRadius.all(Radius.circular(5)),
+        child: Icon(
+          iconData,
+          color: Colors.white,
+          size: MediaQuery.of(context).size.width / 15,
+        ),
+      )),
+      onTap: onTap,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,137 +75,87 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         flexibleSpace: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-								begin: Alignment.topLeft,
-								end: Alignment.bottomRight,
-								colors: <Color>[Colors.blue, Colors.green,Colors.green])),
+              gradient: LinearGradient(colors: [Colors.blue, Colors.pink])),
         ),
       ),
       body: GridView.count(
-				padding: EdgeInsets.only(top: 4),
+        padding: EdgeInsets.only(top: 4),
         crossAxisCount: 2,
         children: <Widget>[
-          InkWell(
-            child: Card(
-                child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
-              ),
-              child: Icon(
-                Icons.info,
-                color: Colors.white,
-                size: MediaQuery.of(context).size.width / 15,
-              ),
-            )),
-            onTap: () {
-              LovelyInfoDialog(
-								context: context,
-								title: 'Pets',
-								leading: Icon(Icons.pets, color: Colors.white),
-								gradient:LinearGradient(colors: [Colors.blue, Colors.green]),
-								description:'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
-								)
-						.show();
-            },
+          getCard(
+              iconData: Icons.info,
+              color: Colors.blue,
+              onTap: () => LovelyInfoDialog(
+                    context: context,
+                    title: 'Pets',
+                    leading: Icon(Icons.pets, color: Colors.white),
+                    gradient:
+                        LinearGradient(colors: [Colors.blue, Colors.green]),
+                    description:
+                        'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
+                  ).show()),
+          getCard(
+            iconData: Icons.comment,
+            color: Colors.green,
+            onTap: () => LovelyTextInputDialog(
+              context: context,
+              hintIcon: Icon(Icons.comment),
+              title: 'Comment on Facebook',
+            ).show(),
           ),
-          InkWell(
-            child: Card(
-              color: Colors.green,
-              child: Icon(
-                Icons.comment,
-                color: Colors.white,
-                size: MediaQuery.of(context).size.width / 15,
-              ),
-            ),
-            onTap: () {
-              LovelyTextInputDialog(
-                context: context,
-                title: 'Comment on @facebook',
-              ).show();
-							
-            },
+          getCard(
+            iconData: Icons.list,
+            color: Colors.orange,
+            onTap: () => LovelyChoiceDialog(
+              context: context,
+              leading: Icon(Icons.fastfood, color: Colors.white),
+              stringList: <String>[
+                'Pizza',
+                'Noodles',
+                'Pasta',
+                'Hambuguer',
+                'Pie',
+              ],
+              title: 'Order Some food',
+              gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
+              onConfirm: (checked) => print(checked),
+              onValueChanged: (value, index) =>
+                  print(value.toString() + " " + index.toString()),
+            ).show(),
           ),
-          InkWell(
-            child: Card(
-                child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
-              ),
-              child: Icon(
-                Icons.list,
-                color: Colors.white,
-                size: MediaQuery.of(context).size.width / 15,
-              ),
-            )),
-            onTap: () {
-              LovelyChoiceDialog(
-                context: context,
-                leading: Icon(Icons.fastfood, color: Colors.white),
-                stringList: <String>[
-                  'Pizza',
-                  'Noodles',
-                  'Pasta',
-                  'Hambuguer',
-                  'Pie',
-                ],
-                title: 'Order Some food',
-                gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
-                onConfirm: (checked) => print(checked),
-                onValueChanged: (value, index) => print(value.toString() + " " + index.toString()),
-              ).show();
-            },
-          ),
-          InkWell(
-            child: Card(
+          getCard(
+              iconData: Icons.fast_forward,
               color: Colors.red,
-              child: Icon(
-                Icons.subscriptions,
-                color: Colors.white,
-                size: MediaQuery.of(context).size.width / 15,
-              ),
-            ),
-            onTap: () {
-							LovelyProgressDialog(context: context,).show();
+              onTap: () {
+                LovelyProgressDialog(context: context,).show();
 
-							value = 0;				
-							Timer.periodic(Duration(milliseconds: 100), (timer) {
-								if((value >= 1) || !LovelyProgressSingleton.hasDialogActive()) timer.cancel();
+                value = 0;
+                Timer.periodic(Duration(milliseconds: 100), (timer) {
+                  if ((value >= 1) ||!LovelyProgressSingleton.hasDialogActive())
+                    timer.cancel();
 
-								print(value+=.01);
-								LovelyProgressSingleton.setValue(value);
-							});
-            },
-          ),
-					InkWell(
-            child: Card(
-              child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                gradient: LinearGradient(colors: [Colors.yellow, Colors.pink]),
+                  print(value += .01);
+                  LovelyProgressSingleton.setValue(value);
+                });
+              }),
+          getCard(
+            iconData: Icons.favorite,
+            color: Colors.pink,
+            onTap: () => LovelyCustomDialog(
+              gradient: LinearGradient(colors: [Colors.blue, Colors.pink]),
+              context: context,
+              child: Column(
+                children: <Widget>[
+                  FlutterLogo(size: 200, style: FlutterLogoStyle.stacked, duration: Duration(seconds: 50)),
+                  SizedBox(height: 8,),
+                ],
               ),
-              child: Icon(
-                Icons.list,
-                color: Colors.white,
-                size: MediaQuery.of(context).size.width / 15,
-              ),
-            )),
-            onTap: () {
-							LovelyCustomDialog(
-                context: context,
-								child: Column(
-									children: <Widget>[
-										FlutterLogo(size: 200),
-										SizedBox(height: 8,),
-									],
-								),
-              ).show();
-            },
-          ),
+            ).show(),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.purple,
         onPressed: BlocProvider.getBloc<ThemeBloc>().switchColor,
         tooltip: 'Change theme',
         child: Icon(Icons.sync),

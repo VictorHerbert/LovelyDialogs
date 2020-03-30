@@ -1,20 +1,22 @@
 # Lovely Dialogs
-![](https://img.shields.io/pub/v/shared_preferences?style=flat-square)
+![](https://img.shields.io/pub/v/lovely_dialogs?style=flat-square)
 
 A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/LovelyDialog)
 
-## Improvements
-
-* Supports gradients
-* Supports any images, icons, or any type of widget in 
-
 ## Demo App
+
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/app.jpeg"/>
+</p>
 
 Apk can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
 
-## Usage
+## Major Improvements
 
-### Import
+* Supports gradients
+* Fully Dark mode support
+
+## Installation
 
 In your pubspeck.yaml:
 
@@ -26,14 +28,31 @@ dependencies:
   lovelydialogs: 0.0.1
 ```
 
-and import
+## Usage
+
+Import 
 
 ``` dart
 import 'package:badges/badges.dart';
 ```
 
+#### Types
+
+[LovelyInfoDialog](https://github.com/VictorHerbert/LovelyDialogs#LovelyInfoDialog)
+[LovelyChoiceDialog](https://github.com/VictorHerbert/LovelyDialogs#LovelyChoiceDialog)
+[LovelyTextInput](https://github.com/VictorHerbert/LovelyDialogs#LovelyTextInput)
+[LovelyProgressDialog](https://github.com/VictorHerbert/LovelyDialogs#LovelyProgressDialog)
+[LovelyCustomDialog](https://github.com/VictorHerbert/LovelyDialogs#LovelyCustomDialog)
+
 ### LovelyInfoDialog
+
+
 ### LovelyChoiceDialog
+
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg"/>
+</p>
+
 ``` dart
 LovelyChoiceDialog(
   context: context,
@@ -65,3 +84,10 @@ LovelyChoiceDialog(
 LovelyProgressDialog(context: context,).show();
 
 LovelyProgressSingleton.setValue(value);
+
+### LovelyCustomDialog
+
+## TO DO
+
+* Fix responsivity issues and landscape mode
+* Remove Intrinsec Height from base widget
