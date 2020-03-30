@@ -50,7 +50,7 @@ import 'package:badges/badges.dart';
 ### LovelyChoiceDialog
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" max-height="64px;"/>
 </p>
 
 ``` dart
