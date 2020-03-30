@@ -6,7 +6,7 @@ A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/Lovel
 ## Demo App
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/app.jpeg"  style="border: 1px solid #000; max-width:64px; max-height:64px;"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/app.jpeg"  width="600" height="1067"/>
 </p>
 
 Apk can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
