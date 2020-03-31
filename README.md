@@ -65,6 +65,8 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 
 ### LovelyInfoDialog
 
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/info_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/info_dark.jpeg" alt="Forest" width="200" height="356"> |
+
 The standard way to use a LovelyDialog is to declare
 
 ``` dart
@@ -106,7 +108,7 @@ if onConfirm function was not provided, confirm button will not appear
 
 ### LovelyChoiceDialog
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_light.jpeg" alt="Snow" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" alt="Forest" width="200" height="356"> |
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" alt="Forest" width="200" height="356"> |
 
 A dialog where you can toggle a series of options, provided a list of strings
 
@@ -139,6 +141,8 @@ LovelyChoiceDialog(
 
 ### LovelyTextInput
 
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/text_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/text_dark.jpeg" alt="Forest" width="200" height="356"> |
+
 A dialog to ask text input from the user
 
 ``` dart
@@ -158,6 +162,8 @@ LovelyTextInputDialog(
 | confirmString |  String | string placed in the flatbutton |
 
 ### LovelyProgressDialog
+
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/progress_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/progress_dark.jpeg" alt="Forest" width="200" height="356"> |
 
 Just need to declare
 
@@ -182,6 +188,8 @@ Type is LovelyProgressType.Linear by default
 | type | LovelyProgressType | 	Linear or Circular |
 
 ### LovelyCustomDialog
+
+<img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/custom.jpeg" width="200" height="356">
 
 Inherits directly from LovelyDialog base, allowing the use of a custom widget as the child
 
