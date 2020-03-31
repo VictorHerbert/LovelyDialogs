@@ -33,7 +33,7 @@ dependencies:
 Import 
 
 ``` dart
-import 'package:badges/badges.dart';
+import 'package:lovelydialogs/lovely_dialogs.dart';
 ```
 
 #### Types
@@ -140,7 +140,7 @@ LovelyChoiceDialog(
 | Parameter | Type | Description |
 | --- | --- | --- |
 | onValueChanged | Function(bool,int) | called when clicked on a Checkbox |
-| onConfirm | Function(List<bool>) | called on click of the confirm button, returns true in a index, if option was checked |
+| onConfirm | Function(List < bool > ) | called on click of the confirm button, returns true in a index, if option was checked |
 | stringList | List<String> | the list of options |
 | activeCheckColor | Color | the color to show that box was checked, theme accent by default |
 
