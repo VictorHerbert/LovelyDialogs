@@ -106,14 +106,7 @@ if onConfirm function was not provided, confirm button will not appear
 
 ### LovelyChoiceDialog
 
-<div class="row">
-  <div class="column">
-    <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_light.jpeg" alt="Snow" width="200" height="356">
-  </div>
-  <div class="column">
-    <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" alt="Forest" width="200" height="356">
-  </div>
-</div>
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_light.jpeg" alt="Snow" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" alt="Forest" width="200" height="356"> |
 
 A dialog where you can toggle a series of options, provided a list of strings
 

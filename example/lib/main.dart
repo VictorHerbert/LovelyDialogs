@@ -100,7 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () => LovelyTextInputDialog(
               context: context,
               hintIcon: Icon(Icons.comment),
+							hintText: 'Comment',
               title: 'Comment on Facebook',
+							buttonsTextTheme: ButtonTextTheme.accent,
             ).show(),
           ),
           getCard(
