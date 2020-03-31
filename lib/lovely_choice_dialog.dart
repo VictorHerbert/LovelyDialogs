@@ -3,7 +3,6 @@ part of lovelydialogs;
 class LovelyChoiceDialog extends LovelyDialog {
 	final Function(bool,int) onValueChanged;
   final Function(List<bool>) onConfirm;
-  final Function() onCancel;
   final List<String> stringList;
 	final Color activeCheckColor;
 
@@ -18,7 +17,6 @@ class LovelyChoiceDialog extends LovelyDialog {
 		this.activeCheckColor,
     @required this.onConfirm,
 		this.onValueChanged,
-    this.onCancel,
   }) : super(context: context, color: color, leading: leading, title: title, gradient: gradient);
 
   @override

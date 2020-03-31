@@ -47,7 +47,9 @@ import 'package:badges/badges.dart';
 
 ### LovelyDialog
 
-Not acessible by default, but all other classes inherits from it. It holds the parameters of the base dialog, colors, etc.
+Not acessible by default, but all other classes inherits from it. It holds the parameters of the base dialog, colors, etc. All of the dialog types can use the following parameters 
+
+#### Parameter Table
 
 | Parameter | Type | Description |
 | --- | --- | --- |
@@ -63,11 +65,44 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 
 ### LovelyInfoDialog
 
+The standard way to use a LovelyDialog is to declare
+
+``` dart
+dialog = LovelyInfoDialog(
+  context: context,
+  title: 'Pets',
+  leading: Icon(Icons.pets, color: Colors.white),
+  gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
+  description: 'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
+);
+```
+
+and calling it later
+
+``` dart
+dialog.show()
+```
+
+or simply
+
+``` dart
+LovelyInfoDialog(
+  context: context,
+  title: 'Pets',
+  description:'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
+).show();
+```
+
+if onConfirm function was not provided, confirm button will not appear
+
+#### Parameter Table
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| onConfirm | Function() |  |
-| description | String |  |
-| confirmString | String |  |
+| onConfirm | Function() | called on click of the confirm button |
+| description | String | text to inform the user about  |
+| confirmString | String | string placed in the flatbutton, if present |
+
 
 ### LovelyChoiceDialog
 
@@ -79,6 +114,8 @@ Not acessible by default, but all other classes inherits from it. It holds the p
     <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" alt="Forest" width="200" height="356">
   </div>
 </div>
+
+A dialog where you can toggle a series of options, provided a list of strings
 
 ``` dart
 LovelyChoiceDialog(
@@ -98,35 +135,44 @@ LovelyChoiceDialog(
 ).show();
 ```
 
+#### Parameter Table
+
 | Parameter | Type | Description |
 | --- | --- | --- |
-| onValueChanged | Function(bool,int) |  |
-| onConfirm | Function(List<bool>) |  |
-| onCancel | Function() |  |
-| stringList | List<String> |  |
-| activeCheckColor | Color |  |
+| onValueChanged | Function(bool,int) | called when clicked on a Checkbox |
+| onConfirm | Function(List<bool>) | called on click of the confirm button, returns true in a index, if option was checked |
+| stringList | List<String> | the list of options |
+| activeCheckColor | Color | the color to show that box was checked, theme accent by default |
 
-## LovelyTextInput
+### LovelyTextInput
+
+A dialog to ask text input from the user
 
 ``` dart
-  LovelyTextInputDialog(
+LovelyTextInputDialog(
   context: context,
   title: 'Comment on @facebook',
 ).show();
 ```
 
+#### Parameter Table
 | Parameter | Type | Description |
 | --- | --- | --- |
-| onConfirm | Function(String) |  |
-| onChange | Function(String) |  |
-| hintIcon | Icon |  |
-| hintText | String |  |
-| confirmString |  String|  |
+| onConfirm | Function(String) | called on click of the confirm button  |
+| onChange | Function(String) | called whenever the text changes |
+| hintIcon | Icon | the icon in the textInput |
+| hintText | String | the help string in the textInput |
+| confirmString |  String | string placed in the flatbutton |
 
 ### LovelyProgressDialog
 
+Just need to declare
+
 ``` dart
-LovelyProgressDialog(context: context,).show();
+LovelyProgressDialog(
+  context: context,
+  type: LovelyProgressType.Circular
+).show();
 ```
 
 and to change its value at runtime
@@ -135,6 +181,9 @@ and to change its value at runtime
 LovelyProgressSingleton.setValue(value);
 ```
 
+Type is LovelyProgressType.Linear by default
+
+#### Parameter Table
 | Parameter | Type | Description |
 | --- | --- | --- |
 | type | LovelyProgressType | 	Linear or Circular |
@@ -155,10 +204,11 @@ LovelyCustomDialog(
   ),
 ).show(),
 ```
+#### Parameter Table
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| child | Widget |  |
+| child | Widget | placeholder for content |
 
 ## TO DO
 
