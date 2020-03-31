@@ -5,10 +5,6 @@ A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/Lovel
 
 ## Demo App
 
-<p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/app.jpeg"  width="200" height="356"/>
-</p>
-
 Apk can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
 
 ## Major Improvements

@@ -39,11 +39,7 @@ class LovelyChoiceContent extends StatefulWidget {
 
 class _LovelyChoiceState extends State<LovelyChoiceContent> {
 	
-	List<bool> checked = List.filled(20, false);
-
-	_LovelyChoiceState(){
-		//checked = List.filled(widget.stringList.length, false);
-	}
+	List<bool> checked = List.filled(20, false);	
 
   @override
   Widget build(BuildContext context) {

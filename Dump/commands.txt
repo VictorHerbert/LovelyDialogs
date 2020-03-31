@@ -1,5 +1,0 @@
-lieno tecnologia
-git -c "user.name=Vector" -c "user.email=victorherberts@outlook.com" commit -m ""
-
-export FLUTTER_HOME=/usr/lib/flutter
-export PATH=$FLUTTER_HOME/bin:$PATH
