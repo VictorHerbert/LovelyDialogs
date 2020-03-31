@@ -1,7 +1,10 @@
 # Lovely Dialogs
 ![](https://img.shields.io/pub/v/lovely_dialogs?style=flat-square)
 
-A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/LovelyDialog)
+
+> This library is a set of simple wrapper classes that are aimed to help you easily create fancy material dialogs.
+
+A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/LovelyDialog).
 
 ## Demo App
 
