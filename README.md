@@ -63,7 +63,7 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 
 | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/info_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/info_dark.jpeg" alt="Forest" width="200" height="356"> |
 
-The standard way to use a LovelyDialog is to declare
+A LovelyInfoDialog aims to show short information to the user. The standard way to use a LovelyDialog is to declare
 
 ``` dart
 dialog = LovelyInfoDialog(
@@ -81,7 +81,7 @@ and calling it later
 dialog.show()
 ```
 
-or simply
+or shortly
 
 ``` dart
 LovelyInfoDialog(

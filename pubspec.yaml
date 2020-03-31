@@ -1,7 +1,7 @@
 name: lovelydialogs
 description: A wrapper for good looking dialogs
 version: 0.0.1
-author: Victor Herbert
+author: Victor Herbert<victorherberts@outlook.com>
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -9,8 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
-  shared_preferences: ^0.5.4
 
 dev_dependencies:
   flutter_test:
