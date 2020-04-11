@@ -1,5 +1,5 @@
 # Lovely Dialogs
-![](https://img.shields.io/pub/v/lovely_dialogs?style=flat-square)
+![](https://img.shields.io/pub/v/lovelydialogs?style=flat-square)
 
 
 A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/LovelyDialog).
@@ -214,3 +214,11 @@ LovelyCustomDialog(
 
 * Fix responsivity issues and landscape mode
 * Remove Intrinsec Height from base widget
+
+flutter format lib/lovely_choice_dialog.dart
+flutter format lib/lovely_custom_dialog.dart
+flutter format lib/lovely_dialogs.dart
+
+flutter format lib/lovely_info_dialog.dart
+flutter format lib/lovely_progress_dialog.dart
+flutter format lib/lovely_text_input_dialog.dart

@@ -1,19 +1,17 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 
-class ThemeBloc extends BlocBase{
+class ThemeBloc extends BlocBase {
+  bool _isDark = false;
 
-	bool _isDark = false;
+  set isDark(bool isDark) {
+    _isDark = isDark;
+    notifyListeners();
+  }
 
-	set isDark(bool isDark){
-		_isDark = isDark;
-		notifyListeners();
-	}
+  get isDark => _isDark;
 
-	get isDark => _isDark;
-
-	void switchColor(){
-		_isDark = !_isDark;
-		notifyListeners();
-	}
-
+  void switchColor() {
+    _isDark = !_isDark;
+    notifyListeners();
+  }
 }

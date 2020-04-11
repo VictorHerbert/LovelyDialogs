@@ -52,11 +52,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return InkWell(
       child: Card(
           child: Container(
-						decoration: BoxDecoration(
-							color: color,
-							//border: Border.all()
-							borderRadius: BorderRadius.all(Radius.circular(4))
-						),
+        decoration: BoxDecoration(
+            color: color,
+            //border: Border.all()
+            borderRadius: BorderRadius.all(Radius.circular(4))),
         //borderRadius: BorderRadius.all(Radius.circular(5)),
         child: Icon(
           iconData,
@@ -100,9 +99,9 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () => LovelyTextInputDialog(
               context: context,
               hintIcon: Icon(Icons.comment),
-							hintText: 'Comment',
+              hintText: 'Comment',
               title: 'Comment on Facebook',
-							buttonsTextTheme: ButtonTextTheme.accent,
+              buttonsTextTheme: ButtonTextTheme.accent,
             ).show(),
           ),
           getCard(
@@ -129,11 +128,14 @@ class _MyHomePageState extends State<MyHomePage> {
               iconData: Icons.fast_forward,
               color: Colors.red,
               onTap: () {
-                LovelyProgressDialog(context: context,).show();
+                LovelyProgressDialog(
+                  context: context,
+                ).show();
 
                 value = 0;
                 Timer.periodic(Duration(milliseconds: 100), (timer) {
-                  if ((value >= 1) ||!LovelyProgressSingleton.hasDialogActive())
+                  if ((value >= 1) ||
+                      !LovelyProgressSingleton.hasDialogActive())
                     timer.cancel();
 
                   print(value += .01);
@@ -148,8 +150,13 @@ class _MyHomePageState extends State<MyHomePage> {
               context: context,
               child: Column(
                 children: <Widget>[
-                  FlutterLogo(size: 200, style: FlutterLogoStyle.stacked, duration: Duration(seconds: 50)),
-                  SizedBox(height: 8,),
+                  FlutterLogo(
+                      size: 200,
+                      style: FlutterLogoStyle.stacked,
+                      duration: Duration(seconds: 50)),
+                  SizedBox(
+                    height: 8,
+                  ),
                 ],
               ),
             ).show(),
