@@ -9,10 +9,11 @@ class LovelyCustomDialog extends LovelyDialog {
     Color color = Colors.grey,
     Gradient gradient,
     Widget leading = const Icon(Icons.palette, color: Colors.white),
-    Radius borderRadius,
+    Radius borderRadius = const Radius.circular(5),
     ButtonTextTheme buttonsTextTheme,
-    bool touchDismissible,
-    bool backDismissible,
+    bool touchDismissible = true,
+    bool backDismissible = true,
+
     @required this.child,
   }) : super(
           context: context,

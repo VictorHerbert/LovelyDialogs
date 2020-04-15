@@ -24,10 +24,11 @@ class LovelyProgressDialog extends LovelyDialog {
     Color color = Colors.red,
     Gradient gradient,
     Widget leading = const Icon(Icons.fast_forward, color: Colors.white),
-    Radius borderRadius,
+    Radius borderRadius = const Radius.circular(5),
     ButtonTextTheme buttonsTextTheme,
-    bool touchDismissible,
-    bool backDismissible,
+    bool touchDismissible = true,
+    bool backDismissible = true,
+
     this.type = LovelyProgressType.Linear,
   }) : super(
           context: context,
