@@ -7,22 +7,28 @@ class LovelyInfoDialog extends LovelyDialog {
 
   LovelyInfoDialog({
     @required BuildContext context,
+    String title,
     Color color = Colors.blue,
     Gradient gradient,
     Widget leading = const Icon(Icons.info, color: Colors.white),
-    String title,
+    Radius borderRadius,
     ButtonTextTheme buttonsTextTheme,
-		
+    bool touchDismissible,
+    bool backDismissible,
     @required this.description,
     this.confirmString = 'Confirm',
     this.onConfirm,
   }) : super(
-            context: context,
-            color: color,
-            gradient: gradient,
-            leading: leading,
-            title: title,
-            buttonsTextTheme: buttonsTextTheme);
+          context: context,
+          title: title,
+          color: color,
+          gradient: gradient,
+          leading: leading,
+          borderRadius: borderRadius,
+          buttonsTextTheme: buttonsTextTheme,
+          touchDismissible: touchDismissible,
+          backDismissible: backDismissible,
+        );
 
   @override
   Widget build(BuildContext context) {

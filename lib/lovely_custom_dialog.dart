@@ -5,17 +5,26 @@ class LovelyCustomDialog extends LovelyDialog {
 
   LovelyCustomDialog({
     @required BuildContext context,
-    Color color = Colors.blue,
+    String title,
+    Color color = Colors.grey,
     Gradient gradient,
-    Widget leading = const Icon(Icons.info, color: Colors.white),
-    String title = '',
+    Widget leading = const Icon(Icons.palette, color: Colors.white),
+    Radius borderRadius,
+    ButtonTextTheme buttonsTextTheme,
+    bool touchDismissible,
+    bool backDismissible,
     @required this.child,
   }) : super(
-            context: context,
-            color: color,
-            gradient: gradient,
-            leading: leading,
-            title: title);
+          context: context,
+          title: title,
+          color: color,
+          gradient: gradient,
+          leading: leading,
+          borderRadius: borderRadius,
+          buttonsTextTheme: buttonsTextTheme,
+          touchDismissible: touchDismissible,
+          backDismissible: backDismissible,
+        );
 
   @override
   Widget build(BuildContext context) => baseDialog(child);

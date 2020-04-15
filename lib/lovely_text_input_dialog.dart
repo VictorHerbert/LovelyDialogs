@@ -9,21 +9,30 @@ class LovelyTextInputDialog extends LovelyDialog {
 
   LovelyTextInputDialog({
     @required BuildContext context,
-    Color color = Colors.green,
-    Widget leading = const Icon(Icons.comment, color: Colors.white),
     String title,
+    Color color = Colors.green,
+    Gradient gradient,
+    Widget leading = const Icon(Icons.comment, color: Colors.white),
+    Radius borderRadius,
     ButtonTextTheme buttonsTextTheme,
+    bool touchDismissible,
+    bool backDismissible,
     this.hintIcon,
     this.hintText,
     this.confirmString = 'Confirm',
     this.onConfirm,
     this.onChange,
   }) : super(
-            context: context,
-            color: color,
-            leading: leading,
-            title: title,
-            buttonsTextTheme: buttonsTextTheme);
+          context: context,
+          title: title,
+          color: color,
+          gradient: gradient,
+          leading: leading,
+          borderRadius: borderRadius,
+          buttonsTextTheme: buttonsTextTheme,
+          touchDismissible: touchDismissible,
+          backDismissible: backDismissible,
+        );
 
   @override
   Widget build(BuildContext context) => baseDialog(LovelyTextInputContent(

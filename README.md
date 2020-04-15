@@ -24,8 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  lovelydialogs: 0.0.1
+  lovelydialogs: ^0.0.2
 ```
+to grab lastest release.
 
 ##  Usage
 
@@ -33,7 +34,7 @@ Import
 
 ``` dart
 import 'package:lovelydialogs/lovely_dialogs.dart';
-```
+```        
 
 #### Types
 
@@ -91,6 +92,7 @@ LovelyInfoDialog(
   context: context,
   title: 'Pets',
   description:'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
+  onConfirm: () => print("Dialog dismissed"),
 ).show();
 ```
 
@@ -100,7 +102,7 @@ if onConfirm function was not provided, confirm button will not appear
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| onConfirm | Function() | called on click of the confirm button |
+| onConfirm | Function() | called on click of the confirm button, need to button to appear |
 | description | String | text to inform the user about  |
 | confirmString | String | string placed in the flatbutton, if present |
 
@@ -115,6 +117,7 @@ A dialog where you can toggle a series of options, provided a list of strings
 LovelyChoiceDialog(
   context: context,
   leading: Icon(Icons.fastfood, color: Colors.white),
+  activeCheckColor: Colors.red,
   stringList: <String>[
     'Pizza',
     'Noodles',
@@ -148,6 +151,8 @@ A dialog to ask text input from the user
 LovelyTextInputDialog(
   context: context,
   title: 'Comment on @facebook',
+  onConfirm: (text) => print('String entered was ' + text),
+	onChange: (text) => print('Current string is ' + text),
 ).show();
 ```
 
@@ -214,11 +219,4 @@ LovelyCustomDialog(
 
 * Fix responsivity issues and landscape mode
 * Remove Intrinsec Height from base widget
-
-flutter format lib/lovely_choice_dialog.dart
-flutter format lib/lovely_custom_dialog.dart
-flutter format lib/lovely_dialogs.dart
-
-flutter format lib/lovely_info_dialog.dart
-flutter format lib/lovely_progress_dialog.dart
-flutter format lib/lovely_text_input_dialog.dart
+* Add onFinish to ProgressDialog 

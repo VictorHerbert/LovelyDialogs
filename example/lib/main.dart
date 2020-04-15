@@ -54,9 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Container(
         decoration: BoxDecoration(
             color: color,
-            //border: Border.all()
             borderRadius: BorderRadius.all(Radius.circular(4))),
-        //borderRadius: BorderRadius.all(Radius.circular(5)),
         child: Icon(
           iconData,
           color: Colors.white,
@@ -88,20 +86,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     context: context,
                     title: 'Pets',
                     leading: Icon(Icons.pets, color: Colors.white),
-                    gradient:
-                        LinearGradient(colors: [Colors.blue, Colors.green]),
-                    description:
-                        'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
+                    gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
+                    description: 'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
+										onConfirm: () => print("Dialog dismissed"),
                   ).show()),
           getCard(
             iconData: Icons.comment,
             color: Colors.green,
             onTap: () => LovelyTextInputDialog(
               context: context,
-              hintIcon: Icon(Icons.comment),
+							buttonsTextTheme: ButtonTextTheme.accent,
+							hintIcon: Icon(Icons.comment),
               hintText: 'Comment',
               title: 'Comment on Facebook',
-              buttonsTextTheme: ButtonTextTheme.accent,
+							onConfirm: (text) => print('String entered was ' + text),
+							onChange: (text) => print('Current string is ' + text),
             ).show(),
           ),
           getCard(
@@ -110,6 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () => LovelyChoiceDialog(
               context: context,
               leading: Icon(Icons.fastfood, color: Colors.white),
+							activeCheckColor: Colors.red,
               stringList: <String>[
                 'Pizza',
                 'Noodles',
@@ -120,8 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: 'Order Some food',
               gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
               onConfirm: (checked) => print(checked),
-              onValueChanged: (value, index) =>
-                  print(value.toString() + " " + index.toString()),
+              onValueChanged: (value, index) =>print(value.toString() + " " + index.toString()),
             ).show(),
           ),
           getCard(

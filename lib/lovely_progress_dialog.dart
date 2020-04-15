@@ -20,17 +20,26 @@ class LovelyProgressDialog extends LovelyDialog {
 
   LovelyProgressDialog({
     @required BuildContext context,
+    String title,
     Color color = Colors.red,
     Gradient gradient,
     Widget leading = const Icon(Icons.fast_forward, color: Colors.white),
-    String title,
+    Radius borderRadius,
+    ButtonTextTheme buttonsTextTheme,
+    bool touchDismissible,
+    bool backDismissible,
     this.type = LovelyProgressType.Linear,
   }) : super(
-            context: context,
-            color: color,
-            leading: leading,
-            title: title,
-            gradient: gradient);
+          context: context,
+          title: title,
+          color: color,
+          gradient: gradient,
+          leading: leading,
+          borderRadius: borderRadius,
+          buttonsTextTheme: buttonsTextTheme,
+          touchDismissible: touchDismissible,
+          backDismissible: backDismissible,
+        );
 
   @override
   Widget build(BuildContext context) =>

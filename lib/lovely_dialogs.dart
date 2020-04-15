@@ -10,9 +10,6 @@ part 'package:lovelydialogs/lovely_progress_dialog.dart';
 part 'package:lovelydialogs/lovely_text_input_dialog.dart';
 part 'package:lovelydialogs/lovely_custom_dialog.dart';
 
-//TODO put all parameters in children
-//TODO put examples of exclusive parameters in each dialog example
-
 abstract class LovelyDialog extends StatelessWidget {
   final BuildContext context;
   final String title;
