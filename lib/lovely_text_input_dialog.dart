@@ -17,7 +17,6 @@ class LovelyTextInputDialog extends LovelyDialog {
     ButtonTextTheme buttonsTextTheme,
     bool touchDismissible = true,
     bool backDismissible = true,
-
     this.hintIcon,
     this.hintText,
     this.confirmString = 'Confirm',

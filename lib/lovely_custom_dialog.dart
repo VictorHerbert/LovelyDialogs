@@ -13,7 +13,6 @@ class LovelyCustomDialog extends LovelyDialog {
     ButtonTextTheme buttonsTextTheme,
     bool touchDismissible = true,
     bool backDismissible = true,
-
     @required this.child,
   }) : super(
           context: context,

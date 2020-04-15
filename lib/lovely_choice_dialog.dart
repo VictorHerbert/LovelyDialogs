@@ -18,7 +18,6 @@ class LovelyChoiceDialog extends LovelyDialog {
     ButtonTextTheme buttonsTextTheme,
     bool touchDismissible = true,
     bool backDismissible = true,
-
     this.stringList,
     this.activeCheckColor,
     this.confirmString = 'Confirm',

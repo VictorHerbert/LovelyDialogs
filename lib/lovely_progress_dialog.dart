@@ -28,7 +28,6 @@ class LovelyProgressDialog extends LovelyDialog {
     ButtonTextTheme buttonsTextTheme,
     bool touchDismissible = true,
     bool backDismissible = true,
-
     this.type = LovelyProgressType.Linear,
   }) : super(
           context: context,
