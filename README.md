@@ -8,7 +8,9 @@ A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/Lovel
 
 ## Demo App
 
-Apk can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
+<img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/app.png" width="200" height="356">
+
+App can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
 
 ## Major Improvements
 
@@ -24,7 +26,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  lovelydialogs: ^0.0.2
+  lovelydialogs: ^0.0.1
 ```
 to grab lastest release.
 
@@ -66,7 +68,7 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 
 ### LovelyInfoDialog
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/info_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/info_dark.jpeg" alt="Forest" width="200" height="356"> |
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/info_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/info_dark.png" alt="Forest" width="200" height="356"> |
 
 A LovelyInfoDialog aims to show short information to the user. The standard way to use a LovelyDialog is to declare
 
@@ -110,7 +112,7 @@ if onConfirm function was not provided, confirm button will not appear
 
 ### LovelyChoiceDialog
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/choice_dark.jpeg" alt="Forest" width="200" height="356"> |
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/choice_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/choice_dark.png" alt="Forest" width="200" height="356"> |
 
 A dialog where you can toggle a series of options, provided a list of strings
 
@@ -145,7 +147,7 @@ LovelyChoiceDialog(
 
 ### LovelyTextInput
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/text_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/text_dark.jpeg" alt="Forest" width="200" height="356"> |
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/text_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/text_dark.png" alt="Forest" width="200" height="356"> |
 
 A dialog to ask text input from the user
 
@@ -169,7 +171,7 @@ LovelyTextInputDialog(
 
 ### LovelyProgressDialog
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/progress_light.jpeg" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/progress_dark.jpeg" alt="Forest" width="200" height="356"> |
+| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/progress_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/progress_dark.png" alt="Forest" width="200" height="356"> |
 
 Just need to declare
 
@@ -195,7 +197,7 @@ Type is LovelyProgressType.Linear by default
 | onFinish | Function | function called when value gets to 1 |
 ### LovelyCustomDialog
 
-<img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/custom.jpeg" width="200" height="356">
+<img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/custom.png" width="200" height="356">
 
 Inherits directly from LovelyDialog base, allowing the use of a custom widget as the child
 
@@ -226,4 +228,4 @@ LovelyCustomDialog(
 
 ## Fixes 
 
-** Choice Dialog Nested Scroll issues
+* Choice Dialog Nested Scroll issues

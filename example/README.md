@@ -1,7 +1,7 @@
 # Lovely Dialogs Demo
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/app.jpeg"  width="200" height="356"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/app.png"  width="200" height="356"/>
 </p>
 
 A demo project to show Flutter Lovely Dialogs, showinhg code usage
