@@ -1,6 +1,6 @@
 name: lovelydialogs
 description: A set of simple wrapper classes that are aimed to help you easily create fancy material dialogs
-version: 0.0.2
+version: 0.1.0
 homepage: https://github.com/VictorHerbert/LovelyDialogs
 
 environment:

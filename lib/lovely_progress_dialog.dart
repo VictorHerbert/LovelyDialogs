@@ -17,23 +17,27 @@ enum LovelyProgressType { Linear, Circular }
 
 class LovelyProgressDialog extends LovelyDialog {
   final LovelyProgressType type;
+	final Function onFinish;
 
   LovelyProgressDialog({
     @required BuildContext context,
     String title,
     Color color = Colors.red,
     Gradient gradient,
+		double landscapeWidth,
     Widget leading = const Icon(Icons.fast_forward, color: Colors.white),
     Radius borderRadius = const Radius.circular(5),
     ButtonTextTheme buttonsTextTheme,
     bool touchDismissible = true,
     bool backDismissible = true,
     this.type = LovelyProgressType.Linear,
+		this.onFinish,
   }) : super(
           context: context,
           title: title,
           color: color,
           gradient: gradient,
+					landscapeWidth: landscapeWidth,
           leading: leading,
           borderRadius: borderRadius,
           buttonsTextTheme: buttonsTextTheme,
@@ -43,13 +47,14 @@ class LovelyProgressDialog extends LovelyDialog {
 
   @override
   Widget build(BuildContext context) =>
-      baseDialog(_LovelyProgressContent(type));
+      baseDialog(_LovelyProgressContent(type,onFinish));
 }
 
 class _LovelyProgressContent extends StatefulWidget {
   final LovelyProgressType _type;
+	final Function _onFinish;
 
-  _LovelyProgressContent(this._type);
+  _LovelyProgressContent(this._type,this._onFinish);
 
   @override
   _LovelyProgressState createState() => _LovelyProgressState();
@@ -65,9 +70,15 @@ class _LovelyProgressState extends State<_LovelyProgressContent> {
   }
 
   void updateValue(double v) {
-    setState(() {
-      _value = v;
-    });
+		if(v >= 1){
+			if(widget._onFinish != null )
+				widget._onFinish();
+		}
+		else{
+			setState(() {
+				_value = v;
+			});
+		}
   }
 
   @override
@@ -86,9 +97,13 @@ class _LovelyProgressState extends State<_LovelyProgressContent> {
           value: _value,
         );
       case LovelyProgressType.Circular:
-        return CircularProgressIndicator(
-          value: _value,
-        );
+        return Container(
+					height: 70,
+					width: 70,
+					child: CircularProgressIndicator(
+						value: _value,
+					),
+				);
       default:
         return null;
     }

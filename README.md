@@ -57,6 +57,7 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 | title | String | The string that goes on the top |
 | color | Color | color of the top BoxDecoration |
 | gradient | Gradient | gradient of the top BoxDecoration |
+| landscapeWidth | double | width of dialog when in landscape, portrait not affected |
 | leading | Widget | widget on center of the top box |
 | borderRadius | Radius | radius of the curved border, set to Radius(0) to disable |
 | buttonsTextTheme | ButtonTextTheme | the style of the bottom buttons |
@@ -140,6 +141,7 @@ LovelyChoiceDialog(
 | onConfirm | Function(List < bool > ) | called on click of the confirm button, returns true in a index, if option was checked |
 | stringList | List<String> | the list of options |
 | activeCheckColor | Color | the color to show that box was checked, theme accent by default |
+| optionsFieldHeight | double | the height of options list container, limited by standard min and max values  |
 
 ### LovelyTextInput
 
@@ -190,7 +192,7 @@ Type is LovelyProgressType.Linear by default
 | Parameter | Type | Description |
 | --- | --- | --- |
 | type | LovelyProgressType | 	Linear or Circular |
-
+| onFinish | Function | function called when value gets to 1 |
 ### LovelyCustomDialog
 
 <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/Images/custom.jpeg" width="200" height="356">
@@ -217,6 +219,11 @@ LovelyCustomDialog(
 
 ## TO DO
 
-* Fix responsivity issues and landscape mode
-* Remove Intrinsec Height from base widget
-* Add onFinish to ProgressDialog 
+* ProgressDialog custom progressbar
+* InfoDialog add a "never show again"/"Acept the terms" button
+* Add SingleChoiceDialog
+* Animations on panel
+
+## Fixes 
+
+** Choice Dialog Nested Scroll issues

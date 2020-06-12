@@ -16,6 +16,7 @@ abstract class LovelyDialog extends StatelessWidget {
   final Color color;
   final Gradient gradient;
   final Widget leading;
+	final double landscapeWidth;
 
   final Radius borderRadius;
   final ButtonTextTheme buttonsTextTheme;
@@ -28,6 +29,7 @@ abstract class LovelyDialog extends StatelessWidget {
     this.title,
     this.color = Colors.blue,
     this.gradient,
+		this.landscapeWidth = 300,
     this.leading = const Icon(Icons.info),
     this.borderRadius = const Radius.circular(5),
     this.buttonsTextTheme = ButtonTextTheme.accent,
@@ -38,10 +40,11 @@ abstract class LovelyDialog extends StatelessWidget {
   Widget baseDialog(Widget child) {
     return Dialog(
       elevation: 2,
-      shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.all(borderRadius)),
-      child: IntrinsicHeight(
-        child: Column(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(borderRadius)),
+      child: SingleChildScrollView(//IntrinsicHeight(
+        child: Container(
+					width: landscapeWidth,
+					child: Column(
           children: <Widget>[
             Container(
               height: 90,
@@ -81,6 +84,8 @@ abstract class LovelyDialog extends StatelessWidget {
             )
           ],
         ),
+
+				)
       ),
     );
   }

@@ -53,8 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Card(
           child: Container(
         decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.all(Radius.circular(4))),
+            color: color, borderRadius: BorderRadius.all(Radius.circular(4))),
         child: Icon(
           iconData,
           color: Colors.white,
@@ -75,92 +74,104 @@ class _MyHomePageState extends State<MyHomePage> {
               gradient: LinearGradient(colors: [Colors.blue, Colors.pink])),
         ),
       ),
-      body: GridView.count(
-        padding: EdgeInsets.only(top: 4),
-        crossAxisCount: 2,
-        children: <Widget>[
-          getCard(
-              iconData: Icons.info,
-              color: Colors.blue,
-              onTap: () => LovelyInfoDialog(
-                    context: context,
-                    title: 'Pets',
-                    leading: Icon(Icons.pets, color: Colors.white),
-                    gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
-                    description: 'Pets are cool, aren\'t they? So don\'t forget to give food and love!',
-										onConfirm: () => print("Dialog dismissed"),
-                  ).show()),
-          getCard(
-            iconData: Icons.comment,
-            color: Colors.green,
-            onTap: () => LovelyTextInputDialog(
-              context: context,
-							buttonsTextTheme: ButtonTextTheme.accent,
-							hintIcon: Icon(Icons.comment),
-              hintText: 'Comment',
-              title: 'Comment on Facebook',
-							onConfirm: (text) => print('String entered was ' + text),
-							onChange: (text) => print('Current string is ' + text),
-            ).show(),
-          ),
-          getCard(
-            iconData: Icons.list,
-            color: Colors.orange,
-            onTap: () => LovelyChoiceDialog(
-              context: context,
-              leading: Icon(Icons.fastfood, color: Colors.white),
-							activeCheckColor: Colors.red,
-              stringList: <String>[
-                'Pizza',
-                'Noodles',
-                'Pasta',
-                'Hambuguer',
-                'Pie',
-              ],
-              title: 'Order Some food',
-              gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
-              onConfirm: (checked) => print(checked),
-              onValueChanged: (value, index) =>print(value.toString() + " " + index.toString()),
-            ).show(),
-          ),
-          getCard(
-              iconData: Icons.fast_forward,
-              color: Colors.red,
-              onTap: () {
-                LovelyProgressDialog(
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return GridView.count(
+            padding: EdgeInsets.only(top: 4),
+            crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
+            children: <Widget>[
+              getCard(
+                  iconData: Icons.info,
+                  color: Colors.blue,
+                  onTap: () => LovelyInfoDialog(
+                        context: context,
+                        title: 'Pets',
+                        leading: Icon(Icons.pets, color: Colors.white),
+                        gradient:
+                            LinearGradient(colors: [Colors.blue, Colors.green]),
+                        description:
+                            'Pets are cool, aren\'t they? So don\'t forget to give food and love! ',
+                        onConfirm: () => print("Dialog dismissed"),
+                      ).show()),
+              getCard(
+                iconData: Icons.comment,
+                color: Colors.green,
+                onTap: () => LovelyTextInputDialog(
                   context: context,
-                ).show();
-
-                value = 0;
-                Timer.periodic(Duration(milliseconds: 100), (timer) {
-                  if ((value >= 1) ||
-                      !LovelyProgressSingleton.hasDialogActive())
-                    timer.cancel();
-
-                  print(value += .01);
-                  LovelyProgressSingleton.setValue(value);
-                });
-              }),
-          getCard(
-            iconData: Icons.favorite,
-            color: Colors.pink,
-            onTap: () => LovelyCustomDialog(
-              gradient: LinearGradient(colors: [Colors.blue, Colors.pink]),
-              context: context,
-              child: Column(
-                children: <Widget>[
-                  FlutterLogo(
-                      size: 200,
-                      style: FlutterLogoStyle.stacked,
-                      duration: Duration(seconds: 50)),
-                  SizedBox(
-                    height: 8,
-                  ),
-                ],
+                  buttonsTextTheme: ButtonTextTheme.accent,
+                  hintIcon: Icon(Icons.comment),
+                  hintText: 'Comment',
+                  title: 'Comment on Facebook',
+                  onConfirm: (text) => print('String entered was ' + text),
+                  onChange: (text) => print('Current string is ' + text),
+                ).show(),
               ),
-            ).show(),
-          )
-        ],
+              getCard(
+                iconData: Icons.list,
+                color: Colors.orange,
+                onTap: () => LovelyChoiceDialog(
+                  context: context,
+									//landscapeWidth: 300,//MediaQuery.of(context).size.width*.3,
+									//chooseFieldHeight: MediaQuery.of(context).size.height * .5, //insert in readme
+                  leading: Icon(Icons.fastfood, color: Colors.white),
+                  activeCheckColor: Colors.red,
+                  stringList: <String>[
+                    'Pizza',
+                    'Noodles',
+                    'Pasta',
+                    'Hambuguer',
+                    'Pie',
+                  ],
+                  title: 'Order Some food',
+                  gradient: LinearGradient(colors: [Colors.orange, Colors.red]),
+                  onConfirm: (checked) => print(checked),
+                  onValueChanged: (value, index) =>
+                      print(value.toString() + " " + index.toString()),
+                ).show(),
+              ),
+              getCard(
+                  iconData: Icons.fast_forward,
+                  color: Colors.red,
+                  onTap: () {
+                    value = 0;
+                    Timer tm = Timer.periodic(Duration(milliseconds: 100), (timer) {
+											if(!LovelyProgressSingleton.hasDialogActive())
+												timer.cancel();
+
+                      print(value += .01);
+                      LovelyProgressSingleton.setValue(value);
+                    });
+										LovelyProgressDialog(
+                      context: context,
+											//type: LovelyProgressType.Circular,
+											onFinish: (){
+												print('foii');
+												tm.cancel();
+											},
+                    ).show();
+                  }),
+              getCard(
+                iconData: Icons.favorite,
+                color: Colors.pink,
+                onTap: () => LovelyCustomDialog(
+                  gradient: LinearGradient(colors: [Colors.blue, Colors.pink]),
+                  context: context,
+                  child: Column(
+                    children: <Widget>[
+                      FlutterLogo(
+                          size: 200,
+                          style: FlutterLogoStyle.stacked,
+                          duration: Duration(seconds: 50)),
+                      SizedBox(
+                        height: 8,
+                      ),
+                    ],
+                  ),
+                ).show(),
+              )
+            ],
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.purple,

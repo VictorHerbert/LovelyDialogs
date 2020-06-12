@@ -1,5 +1,14 @@
+## 0.1.0
+
+    * Fixes
+        - landscape responsivity
+    * Adds
+        - Customizable landscape width
+        - ChoiceDialog customizable options field heigth
+        - ProgressDialog onFinish
+
 ## 0.0.2
-    
+
     * Fix Changelog
     * Fix inherited parameters
     * Maintenance issues fixed

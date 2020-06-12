@@ -7,12 +7,14 @@ class LovelyChoiceDialog extends LovelyDialog {
   final List<String> stringList;
   final Color activeCheckColor;
   final String confirmString;
+	final double optionsFieldHeight;
 
   LovelyChoiceDialog({
     @required BuildContext context,
     String title,
     Color color = Colors.red,
     Gradient gradient,
+		double landscapeWidth,
     Widget leading = const Icon(Icons.list, color: Colors.white),
     Radius borderRadius = const Radius.circular(5),
     ButtonTextTheme buttonsTextTheme,
@@ -21,6 +23,7 @@ class LovelyChoiceDialog extends LovelyDialog {
     this.stringList,
     this.activeCheckColor,
     this.confirmString = 'Confirm',
+		this.optionsFieldHeight,
     @required this.onConfirm,
     this.onValueChanged,
   }) : super(
@@ -28,6 +31,7 @@ class LovelyChoiceDialog extends LovelyDialog {
           title: title,
           color: color,
           gradient: gradient,
+					landscapeWidth: landscapeWidth,
           leading: leading,
           borderRadius: borderRadius,
           buttonsTextTheme: buttonsTextTheme,
@@ -38,7 +42,7 @@ class LovelyChoiceDialog extends LovelyDialog {
   @override
   Widget build(BuildContext context) {
     return baseDialog(LovelyChoiceContent(buttonsTextTheme, stringList,
-        confirmString, activeCheckColor, onConfirm, onValueChanged));
+        confirmString, activeCheckColor, onConfirm, onValueChanged,optionsFieldHeight));
   }
 }
 
@@ -49,6 +53,7 @@ class LovelyChoiceContent extends StatefulWidget {
   final Function(List<bool>) _onConfirm;
   final Function(bool, int) _onValueChanged;
   final String _confirmString;
+	final double _optionsFieldHeight;
 
   LovelyChoiceContent(
       this._buttonsTextTheme,
@@ -56,7 +61,8 @@ class LovelyChoiceContent extends StatefulWidget {
       this._confirmString,
       this._activeCheckColor,
       this._onConfirm,
-      this._onValueChanged);
+      this._onValueChanged,
+			this._optionsFieldHeight);
 
   @override
   _LovelyChoiceState createState() => _LovelyChoiceState();
@@ -69,9 +75,10 @@ class _LovelyChoiceState extends State<LovelyChoiceContent> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(children: <Widget>[
-        Container(
-          height: min(widget._stringList.length * 60.0,
-              MediaQuery.of(context).size.height * .3),
+        Container(//60 .3
+          height: //widget._chooseFieldHeight ??
+						min(widget._stringList.length * 53.0,
+								widget._optionsFieldHeight ?? MediaQuery.of(context).size.height * .5),
           child: ListView.builder(
               itemCount: widget._stringList.length,
               itemBuilder: (_, index) {
