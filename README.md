@@ -8,7 +8,9 @@ A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/Lovel
 
 ## Demo App
 
-<img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/app.png" width="200" height="356">
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/app.png"  width="200" height="356"/>
+</p>
 
 App can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
 
@@ -68,7 +70,9 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 
 ### LovelyInfoDialog
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/info_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/info_dark.png" alt="Forest" width="200" height="356"> |
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/info.png"  width="200" height="356"/>
+</p>
 
 A LovelyInfoDialog aims to show short information to the user. The standard way to use a LovelyDialog is to declare
 
@@ -112,7 +116,9 @@ if onConfirm function was not provided, confirm button will not appear
 
 ### LovelyChoiceDialog
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/choice_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/choice_dark.png" alt="Forest" width="200" height="356"> |
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/choice.png"  width="200" height="356"/>
+</p>
 
 A dialog where you can toggle a series of options, provided a list of strings
 
@@ -140,14 +146,16 @@ LovelyChoiceDialog(
 | Parameter | Type | Description |
 | --- | --- | --- |
 | onValueChanged | Function(bool,int) | called when clicked on a Checkbox |
-| onConfirm | Function(List < bool > ) | called on click of the confirm button, returns true in a index, if option was checked |
+| onConfirm | Function(List <bool> ) | called on click of the confirm button, returns true in a index, if option was checked |
 | stringList | List<String> | the list of options |
 | activeCheckColor | Color | the color to show that box was checked, theme accent by default |
 | optionsFieldHeight | double | the height of options list container, limited by standard min and max values  |
 
 ### LovelyTextInput
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/text_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/text_dark.png" alt="Forest" width="200" height="356"> |
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/text.png"  width="200" height="356"/>
+</p>
 
 A dialog to ask text input from the user
 
@@ -171,7 +179,9 @@ LovelyTextInputDialog(
 
 ### LovelyProgressDialog
 
-| <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/progress_light.png" width="200" height="356"> | <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/progress_dark.png" alt="Forest" width="200" height="356"> |
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/progress.png"  width="200" height="356"/>
+</p>
 
 Just need to declare
 
@@ -194,10 +204,12 @@ Type is LovelyProgressType.Linear by default
 | Parameter | Type | Description |
 | --- | --- | --- |
 | type | LovelyProgressType | 	Linear or Circular |
-| onFinish | Function | function called when value gets to 1 |
+| onFinish | Function() | function called when value gets to 1 |
 ### LovelyCustomDialog
 
-<img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/custom.png" width="200" height="356">
+<p align="center">
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/custom.png"  width="200" height="356"/>
+</p>
 
 Inherits directly from LovelyDialog base, allowing the use of a custom widget as the child
 
