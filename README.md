@@ -8,10 +8,6 @@ A flutter implementation of [LovelyDialog](https://github.com/yarolegovich/Lovel
 
 ## Demo App
 
-<p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/app.png"  width="200" height="356"/>
-</p>
-
 App can be found [here](https://github.com/VictorHerbert/LovelyDialogs/tree/master/example)
 
 ## Major Improvements
@@ -71,7 +67,7 @@ Not acessible by default, but all other classes inherits from it. It holds the p
 ### LovelyInfoDialog
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/info.png"  width="200" height="356"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/info.png"  width="556" height="500"/>
 </p>
 
 A LovelyInfoDialog aims to show short information to the user. The standard way to use a LovelyDialog is to declare
@@ -117,7 +113,7 @@ if onConfirm function was not provided, confirm button will not appear
 ### LovelyChoiceDialog
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/choice.png"  width="200" height="356"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/choice.png"  width="556" height="500"/>
 </p>
 
 A dialog where you can toggle a series of options, provided a list of strings
@@ -154,7 +150,7 @@ LovelyChoiceDialog(
 ### LovelyTextInput
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/text.png"  width="200" height="356"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/text.png"  width="556" height="500"/>
 </p>
 
 A dialog to ask text input from the user
@@ -180,7 +176,7 @@ LovelyTextInputDialog(
 ### LovelyProgressDialog
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/progress.png"  width="200" height="356"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/progress.png"  width="556" height="500"/>
 </p>
 
 Just need to declare
@@ -208,7 +204,7 @@ Type is LovelyProgressType.Linear by default
 ### LovelyCustomDialog
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/custom.png"  width="200" height="356"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/custom.png"  width="556" height="500"/>
 </p>
 
 Inherits directly from LovelyDialog base, allowing the use of a custom widget as the child
