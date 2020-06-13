@@ -204,7 +204,7 @@ Type is LovelyProgressType.Linear by default
 ### LovelyCustomDialog
 
 <p align="center">
-  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/custom.png"  width="556" height="500"/>
+  <img src="https://github.com/VictorHerbert/LovelyDialogs/raw/master/images/custom.png"  width="278" height="500"/>
 </p>
 
 Inherits directly from LovelyDialog base, allowing the use of a custom widget as the child
