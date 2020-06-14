@@ -47,7 +47,7 @@ abstract class LovelyDialog extends StatelessWidget {
 					child: Column(
           children: <Widget>[
             Container(
-              height: 90,
+              height: 80,
               width: double.maxFinite,
               decoration: BoxDecoration(
                   color: color,

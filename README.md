@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  lovelydialogs: ^0.0.1
+  lovelydialogs: ^0.1.0
 ```
 to grab lastest release.
 
